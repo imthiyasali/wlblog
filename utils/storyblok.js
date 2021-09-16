@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import StoryblokClient from "storyblok-js-client";
 
 const Storyblok = new StoryblokClient({
-  accessToken: "YOUR_PREVIEW_TOKEN",
+  accessToken: "PuNxlAGdNvMRSkH8uW8xXgtt",
   cache: {
     clear: "auto",
     type: "memory",
@@ -76,10 +76,9 @@ export function useStoryblok(originalStory, preview, locale) {
 
   useEffect(() => {
       // only load inside preview mode
-      if(preview) {
-        // first load the bridge, then initialize the event listeners
+         // first load the bridge, then initialize the event listeners
         addBridge(initEventListeners);
-      } 
+      
   }, []);
 
   return story;
