@@ -9,6 +9,19 @@ const Storyblok = new StoryblokClient({
   },
 });
 
+Storyblok.setComponentResolver((component, blok) => {
+  switch(component) {
+    case 'my_button':
+      return `<button>${blok.button_text}</button>`
+      break;
+    case 'contact_form':
+      return `<a href="mailto:${blok.mail}">Mail me at: ${blok.mail}</a>`
+      break;
+  }
+})
+ 
+
+ 
 export function useStoryblok(originalStory, preview, locale) {
   let [story, setStory] = useState(originalStory);
 

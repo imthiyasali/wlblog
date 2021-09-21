@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 import SbEditable from "storyblok-react";
 
 const PostLists = ({ blok }) => {
@@ -21,21 +22,21 @@ const PostLists = ({ blok }) => {
                 </span>
               </div>
               <div className="mt-2">
-                <a
+                <Link
                   className="text-2xl text-gray-700 font-bold hover:text-gray-600"
                   href={`${lang}/blog/${post.slug}`}
                 >
                   {post.content.title}
-                </a>
+                </Link>
                 <p className="mt-2 text-gray-600">{post.content.intro}</p>
               </div>
               <div className="flex justify-between items-center mt-4">
-                <a
+                <Link
                   className="text-blue-600 hover:underline"
                   href={`${lang}/blog/${post.slug}`}
                 >
                   Read more
-                </a>
+                </Link>
               </div>
             </li>
           );

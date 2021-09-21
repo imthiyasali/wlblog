@@ -20,7 +20,7 @@ export default function Page({ story, preview, locale, locales }) {
 
 export async function getStaticProps({ locale, locales, params, preview = false }) {
   let slug = params.slug ? params.slug.join('/') : 'home'
-
+console.log(slug)
   let sbParams = {
     version: "draft", // or 'draft'
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
@@ -33,9 +33,11 @@ export async function getStaticProps({ locale, locales, params, preview = false 
   }
  
   let { data } = await Storyblok.get(`cdn/stories/${slug}`, sbParams)
- 
+   
+   console.log(data.story)
   return {
     props: {
+      key:data.story.id,
       story: data ? data.story : false,
       preview,
       locale,
@@ -44,6 +46,7 @@ export async function getStaticProps({ locale, locales, params, preview = false 
     revalidate: 3600, // revalidate every hour
   }
 }
+
 
 export async function getStaticPaths({ locales }) {  
   let { data } = await Storyblok.get('cdn/links/')

@@ -5,7 +5,17 @@ import Grid from './Grid'
 import Placeholder from './Placeholder'
 import PostsList from './PostsList'
 import Page from './Page'
+import Idelement from './Idelement'
 import BlogPost from './BlogPost'
+import Tagname from './Tagname'
+
+import Tagdetails from './Tagdetails'
+
+import Tagdesc from './Tagdesc'
+
+import Tagcode from './Tagcode'
+
+import Tag from './Tag'
 import Text from './Text'
 
 const Components = {
@@ -17,6 +27,12 @@ const Components = {
   'post': BlogPost,
   'text': Text,
   'selected-posts': PostsList,
+  'tagname': Tagname,
+  'tagdesc': Tagdesc,
+  "tagdetails":Tagdetails,
+  'tag': Tag,
+  'tagcode':Tagcode,
+  'idelement':Idelement
 }
 
 const DynamicComponent = ({ blok }) => {

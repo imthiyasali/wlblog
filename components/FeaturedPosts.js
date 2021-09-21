@@ -1,34 +1,41 @@
 import React from "react";
 import SbEditable from "storyblok-react";
+import Link from 'next/link'
 
 const FeaturedPosts = ({ blok }) => {
   return (
     <SbEditable content={blok} key={blok._uid}>
-      <div className="py-8 mb-6 container mx-auto text-left" key={blok._uid}>
+      <div className="py-28 mb-6 container mx-auto text-left" key={blok._uid}>
         <div className="relative">
           <h2 className="relative font-serif text-4xl z-10 text-primary">
             {blok.title}
           </h2>
-          <div className="absolute top-0 w-64 h-10 mt-6 -ml-4 bg-yellow-300 opacity-50" />
-        </div>
+         </div>
         <ul className="flex">
           {blok.posts.map((post) => {
             const lang = post.lang === "default" ? "/en" : `/${post.lang}`;
-
+              console.log(post)
             return (
               <li key={post.slug} className="pr-8 w-1/3">
-                <a
+                <Link
                   href={`${lang}/blog/${post.slug}`}
                   className="py-16 block transition hover:opacity-50"
                 >
-                  <img src={post.content.image} className="pb-10 w-full" />
+                <div className='blogtotal'>
+                <div className='imagecontent'>
+                  <img src={post.content.image} className="  w-full" />
+                  </div>
+                  <div className='blogcontent'>
+                  <p>{new Date(post.published_at).toLocaleString('default', { month: 'short' })} 
+                  {' '+new Date(post.published_at).getDate()}, {new Date(post.published_at).getFullYear()} </p>
                   <h2 className="pb-6 text-lg font-bold">
                     {post.content.title}
                   </h2>
-                  <p className="pb-6 text-gray-700 leading-loose">
-                    {post.content.intro}
-                  </p>
-                </a>
+
+                 
+                  </div>
+                  </div>
+                </Link>
               </li>
             );
           })}

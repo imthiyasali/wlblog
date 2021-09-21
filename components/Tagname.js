@@ -2,14 +2,15 @@ import React from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 
-const Text = ({ blok }) => {
+const Tagname = ({ blok }) => {
  
   return (
     <SbEditable content={blok} key={blok._uid}>
-      <div className="bg-white w-full">
-        <div className="container  mx-auto py-12 pad">
+      <div className="bg-white ">
+        <div  >
          
-              {render(blok.text)}
+          <p className='tagname' >{render(blok.tagname)}</p>
+
 
      
         </div>
@@ -18,4 +19,4 @@ const Text = ({ blok }) => {
   )
 }
 
-export default Text
+export default Tagname
